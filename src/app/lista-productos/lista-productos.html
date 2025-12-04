@@ -1,0 +1,7 @@
+<div class="card">
+  <h3>{{ product()!.title }}</h3>
+  <p>Precio: {{ product()!.price }}€</p>
+  <p>Con IVA: {{ priceWithTax() }}€</p>
+
+  <button (click)="select()">Seleccionar</button>
+</div>

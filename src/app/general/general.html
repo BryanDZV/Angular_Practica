@@ -1,0 +1,14 @@
+<h1>General</h1>
+<app-buscador></app-buscador>
+<div>
+  @for (p of products(); track $index) {
+
+  <app-lista-productos [product]="p" (selected)="onSelect($event)"></app-lista-productos>}
+</div>
+
+<div>
+  @if (selected()) {
+  <h3>Has selecionado:</h3>
+
+  {{ selected()!.title }} }
+</div>
