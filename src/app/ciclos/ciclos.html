@@ -1,0 +1,11 @@
+<h1>Ciclos de Vida-HIJO</h1>
+<div #box>
+  <strong>EN EL HIJO SELECCION DEL PADRE::</strong>
+  <P>id:{{ producto()?.id }}</P>
+  <P>titulo:{{ producto()?.title | shorten }}</P
+  ><!--shorten es un pipe pesonalizado-->
+  <P>Moneda:{{ producto()?.price | currency : 'EUR' }}</P>
+  <P>Fecha:{{ producto()?.created | date : 'dd/MM/yyyy' }}</P>
+  <P>VENDIDO:{{ producto()?.vendido | percent : '1.0-1' }}</P
+  ><!--este pipe te multiplica por 100-->
+</div>

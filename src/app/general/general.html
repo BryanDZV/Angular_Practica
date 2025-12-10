@@ -1,14 +1,19 @@
-<h1>General</h1>
-<app-buscador></app-buscador>
-<div>
-  @for (p of products(); track $index) {
-
-  <app-lista-productos [product]="p" (selected)="onSelect($event)"></app-lista-productos>}
-</div>
-
+<h1>General-PADRE</h1>
 <div>
   @if (selected()) {
-  <h3>Has selecionado:</h3>
+  <h3>EN EL PADRE ESTO ENVIO A HIJOS >Has selecionado:</h3>
 
   {{ selected()!.title }} }
 </div>
+<app-buscador></app-buscador>
+<div>
+  @for (p of products(); track $index) {
+  <!-- asi cada item para pintar lista en el hijo hijo-->
+  <app-lista-productos [product]="p" (selected)="onSelect($event)"></app-lista-productos>
+  <!--mediante un boton sellecion y cambio el valor de la señal-->
+
+  <button (click)="onSelect(p)">SELECCIONA DESDE EL PADRE</button>
+  }
+</div>
+<!--asi paso un producto que selecciono desde el padre-->
+<app-ciclos [producto]="selected()"></app-ciclos>
