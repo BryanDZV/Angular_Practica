@@ -1,15 +1,18 @@
-import { Component, effect, input, signal } from '@angular/core';
+import { Component, effect, inject, input, signal } from '@angular/core';
 import { ListaProductos } from '../lista-productos/lista-productos';
 
 import { single } from 'rxjs';
 import { Product } from '../models/productos';
 import { Buscador } from '../buscador/buscador';
 import { Ciclos } from '../ciclos/ciclos';
+import { SombraConDirectiva } from '../sombra-con-directiva/sombra-con-directiva';
+import { Sombra } from '../directives/sombra';
+import { ProductService } from '../services/product-service';
 
 @Component({
   selector: 'app-general',
   standalone: true,
-  imports: [ListaProductos, Buscador, Ciclos],
+  imports: [ListaProductos, Buscador, Ciclos, SombraConDirectiva, Sombra],
   templateUrl: './general.html',
   styleUrl: './general.css',
 })
@@ -29,4 +32,9 @@ export class General {
   onSelect(product: Product) {
     this.selected.set(product);
   }
+
+  //meto mas producto con servicio e injecion moderina
+  private productService = inject(ProductService); //ijecion del servicio de forma moderna
+
+  productsOfService = this.productService.getPorducto();
 }

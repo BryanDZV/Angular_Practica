@@ -1,4 +1,30 @@
-<h1>General-PADRE</h1>
+<h1 appSombra>General-PADRE</h1>
+<h2>Productos desde servicio inyectos en General</h2>
+<div>
+  <h2>Productos desde servicio</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (p of productsOfService; track p.id) {
+      <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.price }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<app-sombra-con-directiva></app-sombra-con-directiva>
 <div>
   @if (selected()) {
   <h3>EN EL PADRE ESTO ENVIO A HIJOS >Has selecionado:</h3>

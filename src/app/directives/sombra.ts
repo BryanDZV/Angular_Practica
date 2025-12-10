@@ -13,6 +13,10 @@ export class Sombra {
   onMouseEnter() {
     this.background = 'green';
   }
+  @HostListener('click')
+  click() {
+    console.log('Escuchado desde hostListener---->>>hiciste click ');
+  }
   @HostListener('mouseleave')
   onMouseLeave() {
     this.background = '';
