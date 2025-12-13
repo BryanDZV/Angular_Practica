@@ -23,8 +23,11 @@
     </tbody>
   </table>
 </div>
+<h2>CANTIDAD DE PRODUCTOS DESDE UN SERVICIO(cartService)</h2>
+<app-boton-add></app-boton-add>
 
-<app-sombra-con-directiva></app-sombra-con-directiva>
+<app-sombra-con-directiva></app-sombra-con-directiva
+><!--aqui directiva paracambiar estilo-->
 <div>
   @if (selected()) {
   <h3>EN EL PADRE ESTO ENVIO A HIJOS >Has selecionado:</h3>
@@ -34,11 +37,14 @@
 <app-buscador></app-buscador>
 <div>
   @for (p of products(); track $index) {
-  <!-- asi cada item para pintar lista en el hijo hijo-->
+  <!-- asi cada item para pintar lista en el hijo hijo,le paso y el pinta-->
   <app-lista-productos [product]="p" (selected)="onSelect($event)"></app-lista-productos>
   <!--mediante un boton sellecion y cambio el valor de la señal-->
 
-  <button (click)="onSelect(p)">SELECCIONA DESDE EL PADRE</button>
+  <button (click)="onSelect(p)">SELECCIONA DESDE EL PADRE</button
+  ><!--boton solo para saber que seleciono arriab @if-->
+  <h2>FAVORITO COMPONENTE</h2>
+  <app-favoritos [add]="p"></app-favoritos>
   }
 </div>
 <!--asi paso un producto que selecciono desde el padre-->
