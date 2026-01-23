@@ -1,0 +1,9 @@
+@if (loading()) {
+  <p>Loading characters...</p>
+} @else {
+  <ul>
+    @for (character of characters(); track character.id) {
+      <li>{{ character }}</li>
+    }
+  </ul>
+}
